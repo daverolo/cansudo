@@ -19,7 +19,7 @@
 # ESSENTIALS
 #
 
-# Make sure  job control is enbled (required for "fg" - https://unix.stackexchange.com/a/196606)
+# Make sure job control is enbled (required for "fg" - https://unix.stackexchange.com/a/196606)
 set -m
 
 # Timeout - needed to check if a pw was requested
@@ -40,7 +40,7 @@ sayerr() { echo "$@" 1>&2; }
 # - $3: [OPTIONAL] <string> - Specify a string that should be announceds to stderr if timeout happened (Default: <empty>)
 # Returns 0 on success, 1 otherwise
 has_pid_stopped() {
-    local pid=$1
+	local pid=$1
 	local timeout=${2-1}
 	local announce=$3
 	local uptimesecstart
@@ -48,19 +48,19 @@ has_pid_stopped() {
 	local uptimesecdiff
 	uptimesecstart=$(awk '{print $1}' /proc/uptime)
 	uptimesecstart="${uptimesecstart%.*}" # remove ".xxx" from seconds string
-    while kill -0 $pid &>/dev/null; do
-        sleep 1
+	while kill -0 $pid &>/dev/null; do
+		sleep 1
 		uptimesecnow=$(awk '{print $1}' /proc/uptime)
 		uptimesecnow="${uptimesecnow%.*}" # remove ".xxx" from seconds string
 		uptimesecdiff=$((uptimesecnow-uptimesecstart))
-        if [ $uptimesecdiff -ge $timeout ]; then
+		if [ $uptimesecdiff -ge $timeout ]; then
 			if ! [ -z "$announce" ]; then
-            	sayerr "$announce"
+				sayerr "$announce"
 			fi
-            kill -9 $pid
-            exit 1
-        fi
-    done
+			kill -9 $pid
+			exit 1
+		fi
+	done
 }
 
 #
@@ -69,7 +69,7 @@ has_pid_stopped() {
 
 # Check if the user is in sudo group
 if ! groups | grep -qw "sudo"; then
-    sayerr "FAIL: user can not sudo at all because not in sudo group!"
+	sayerr "FAIL: user can not sudo at all because not in sudo group!"
 	exit 1
 fi
 
@@ -80,12 +80,12 @@ uptimesecstart=$(awk '{print $1}' /proc/uptime)
 uptimesecstart="${uptimesecstart%.*}" # remove ".xxx" from seconds string
 has_pid_stopped $pid $timeout &
 while true; do
-    # if kill -0 $pid &>/dev/null; then
+	# if kill -0 $pid &>/dev/null; then
 		# echo -n "."
-        fg sudo &>/dev/null; [ $? == 1 ] && break;
-    # else
-        # break
-    # fi
+		fg sudo &>/dev/null; [ $? == 1 ] && break;
+	# else
+		# break
+	# fi
 done
 uptimesecnow=$(awk '{print $1}' /proc/uptime)
 uptimesecnow="${uptimesecnow%.*}" # remove ".xxx" from seconds string
