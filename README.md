@@ -14,7 +14,7 @@ bash cansudo.sh
 Code | Type | Description
 ---------|----------|---------
  0 | SUCCESS | The user is in sudo group **and** can use sudo without password
- 2 | FAIL | The user can not use sudo at all because he is not in sudo group
+ 1 | FAIL | The user can not use sudo at all because he is not in sudo group
  2 | FAIL | The user can use sudo but requires to input a password
 
 # Important
