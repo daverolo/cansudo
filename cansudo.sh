@@ -9,7 +9,7 @@
 # 2 = FAIL: The user can use sudo but requires to input a password
 # -------------------------------------------------------------------------------------------------
 # Example:
-# bash /testing/cansudo.sh
+# bash cansudo.sh
 # -------------------------------------------------------------------------------------------------
 # Important:
 # Currently only tested with bash & may not work with zsh on mac!
