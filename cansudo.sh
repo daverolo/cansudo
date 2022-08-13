@@ -29,6 +29,10 @@ set -m
 # You may need to set this higher on busy systems
 timeout=1
 
+# Script name and version (you must not change this values)
+SCRIPT_NAME=$(basename "$0")
+SCRIPT_VERSION="1.0.0"
+
 #
 # HELPER FUNCTIONS
 #
@@ -67,6 +71,16 @@ has_pid_stopped() {
 		fi
 	done
 }
+
+#
+# SCRIPT NAME/VERSION
+#
+
+# Output script name and version if requested via --version or -v
+if ! [ -z "$SCRIPT_VERSION" ] && ( [ "${1,,}" == "--version" ] || [ "${1,,}" == "-v" ]); then
+	echo "$SCRIPT_NAME $SCRIPT_VERSION"
+	exit 0
+fi
 
 #
 # RUN CHECKS
