@@ -31,7 +31,7 @@ timeout=1
 
 # Script name and version (you must not change this values)
 SCRIPT_NAME=$(basename "$0")
-SCRIPT_VERSION="1.0.0"
+SCRIPT_VERSION="1.0.1"
 
 #
 # HELPER FUNCTIONS

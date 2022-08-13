@@ -1,4 +1,4 @@
-# CanSudo.sh 1.0.0
+# CanSudo.sh 1.0.1
 
 Bash script to check whether or not the current user can sudo **without entering a password**.
 
