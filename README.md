@@ -1,4 +1,4 @@
-# CanSudo.sh
+# CanSudo.sh 1.0.0
 
 Bash script to check whether or not the current user can sudo **without entering a password**.
 
@@ -8,6 +8,13 @@ Bash script to check whether or not the current user can sudo **without entering
 bash cansudo.sh
 ```
 > Run the command above with users that have different settings in `/etc/sudoers`!
+
+## Arguments
+
+Argument | Required | Accepts Value | Description
+---------|---------|----------|---------
+ --version |  No | None | Returns script name and version
+ -v |  No | None | Returns script name and version
 
 ## Exit Codes
 
