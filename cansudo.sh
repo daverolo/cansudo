@@ -12,7 +12,10 @@
 # bash cansudo.sh
 # -------------------------------------------------------------------------------------------------
 # Important:
-# Currently only tested with bash & may not work with zsh on mac!
+# - Currently only tested with bash on Ubuntu 20.04
+# - Script may not work with zsh on Mac or other shells/OS
+# - You may have to adjust the timeout value on busy systems (see ESSENTIALS section below)
+# - Still a bit hacky solution - use at your own risk
 # -------------------------------------------------------------------------------------------------
 
 #
@@ -23,7 +26,7 @@
 set -m
 
 # Timeout - needed to check if a pw was requested
-# You may need to set this higher on extremly busy systems
+# You may need to set this higher on busy systems
 timeout=1
 
 #
@@ -31,7 +34,9 @@ timeout=1
 #
 
 # Echo to stderr
-sayerr() { echo "$@" 1>&2; }
+sayerr() {
+	echo "$@" 1>&2
+}
 
 # Check wheter or not a given process id has stopped within specified timeout
 # Arguments:
