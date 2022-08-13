@@ -57,7 +57,7 @@ has_pid_stopped() {
 			if ! [ -z "$announce" ]; then
 				sayerr "$announce"
 			fi
-			kill -9 $pid
+			kill -9 $pid &>/dev/null
 			exit 1
 		fi
 	done
