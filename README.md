@@ -28,7 +28,7 @@ Code | Type | Description
 
 1. Currently only tested with bash on Ubuntu 20.04
 1. Script may not work with zsh on Mac or other shells/OS
-1. You may have to adjust the `timeout` value on busy systems (see `ESSENTIALS` section in [cansudo.sh](cansudo.sh)
+1. You may have to adjust the `timeout` value on busy systems (see `ESSENTIALS` section in [cansudo.sh](cansudo.sh))
 1. Still a bit _hacky_ solution - use at your own risk
 
 # Credits
