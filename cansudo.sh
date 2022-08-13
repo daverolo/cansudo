@@ -86,6 +86,12 @@ fi
 # RUN CHECKS
 #
 
+# If the user is root -> he can in any case :)
+if [ $(id -u -n) == "root" ]; then
+	echo "SUCCESS: user can sudo without password because he is root"
+	exit 0
+fi
+
 # Check if the user is in sudo group
 if ! groups | grep -qw "sudo"; then
 	sayerr "FAIL: user can not sudo at all because not in sudo group!"
