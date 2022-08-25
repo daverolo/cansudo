@@ -99,7 +99,7 @@ if ! groups | grep -qw "sudo"; then
 fi
 
 # User is in sudo group - check if he need to enter a password
-sudo -l >/dev/null & # will ask the user for password if sudo is not passwordless
+sudo -S -l >/dev/null & # will ask the user for password if sudo is not passwordless
 pid=$!
 uptimesecstart=$(awk '{print $1}' /proc/uptime)
 uptimesecstart="${uptimesecstart%.*}" # remove ".xxx" from seconds string
